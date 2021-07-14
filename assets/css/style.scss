@@ -1,14 +1,41 @@
----
----
-
 body {
-  padding-top: 66px;
-  font-family: Roboto, sans-serif;
-  color: #333;
-  font-size: 14px;
-  line-height: 20px;
+  text-align: center;
+  > #container {
+    text-align:left;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    margin:0 auto;
+    width:500px;
+  }
 }
 
+
+
+}
+div[role="main"] {
+  @include background-image(linear-gradient(lighten($color1, 30%), lighten($color2, 30%)));
+  @include border-radius($border-radius * 3.5, $border-radius * 3.5 ); 
+  border:3px solid $color2;
+  padding:$border-radius;
+  margin-bottom:25px; 
+  
+  ul {
+    padding-top:14px;
+  }
+  li {
+    color:$fontcolor1;
+    margin-bottom:12px;
+  }
+}
+
+button {
+  //leverages the buttons mixin
+  @include buttons();
+}
+
+header {
 h1 {
   margin: 10px 0px;
   font-size: 38px;
@@ -35,6 +62,7 @@ h4 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+}
 }
 
 p {
