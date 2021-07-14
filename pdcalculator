@@ -1,0 +1,691 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body><h2>A Web-based Medical Calculator for Prodromal Risk in Parkinsonism</h2>
+<b>Authors</b>: Sebastian Heinzel PhD, Daniela Berg MD, Thomas M. Gasser MD, Honglei Chen MD, Chun Yao MSc, Ronald B. Postuma MD, MSc
+<br>
+<b>Architectured by</b>: Chun Yao
+
+
+
+
+
+
+<br>
+
+<fieldset>
+<legend>
+<h3> Read Me </h3>
+</legend>
+This online calculator was built for the purpose of clinical and 
+research usage only. The results should be interpreted by experienced 
+neurologist or movement disorder specialists as a reference for 
+diagnosis. Note that the online calculator will not save or retrieve any
+ information from your computer. Simply scroll down each box and choose 
+whatever is appropriate. For specific symptoms and markers you find 
+further information and instructions when you click on the link in the 
+symptom/marker name. The results of the risk of prodromal PD will be 
+calculated and displayed automatically.
+It is important to note that the online calculator will not save or 
+retrieve any information from your computer.
+<br>
+<br>
+Simply <b><u>scroll down each box</u></b> and choose whatever is appropriate. The results will be calcualted and displayed automatically.
+<br>
+<br>
+<b> *<u>If the webpage is not working, please, refressh the page or allow the plugin. Sometimes, antivirus software may block unknown webpage functioning to protect your computer.</b></u>
+</fieldset>
+<br>
+<br>
+<br>
+
+<script>
+function select_YN(){
+   agePro = document.getElementById("age").value;
+	document.getElementById("PriorProb").value = (agePro/(1-agePro));
+   
+if(agePro == 0.004){
+	var ageLR = 1000}
+    else if (agePro == 0.0075){
+	var ageLR = 515}
+	else if ( agePro == 0.0125){
+	var ageLR = 300}
+	else if (agePro == 0.02){
+	var ageLR = 180}
+	else if (agePro == 0.025){
+	var ageLR = 155}
+	else if (agePro == 0.035){
+	var ageLR = 110}
+	else if (agePro == 0.04){
+	var ageLR = 95
+	}
+<!------ Risk Marker --->
+	sexLR = document.getElementById("sex").value;
+	PesticideLR = document.getElementById("Pesticide").value;
+	OccupationLR = document.getElementById("Occupation").value;
+	CaffeineLR = document.getElementById("Caffeine").value;
+	SmokingLR = document.getElementById("Smoking").value;
+	
+	<!------ Gene --->
+	RelativeLR = document.getElementById("Relative").value;
+	GBALR = document.getElementById("GBA").value;
+
+	<!-- DIfferent GBA and Age Combination --> 
+
+GBALR_Age = 1 
+
+	switch(true){
+	case agePro== 0.004 && GBALR==20:
+	var GBALR_Age = 20 ;
+	}
+	switch(true){
+	case agePro== 0.0075 && GBALR==20:
+	var GBALR_Age = 14.7 ;
+	}
+	switch(true){
+	case agePro== 0.0125 && GBALR==20:
+	var GBALR_Age = 11.2 ;
+	}
+	switch(true){
+	case agePro== 0.02 && GBALR==20:
+	var GBALR_Age = 9 ;
+	}
+	switch(true){
+	case agePro== 0.025 && GBALR==20:
+	var GBALR_Age = 8.4 ;
+	}
+	switch(true){
+	case agePro== 0.035 && GBALR==20:
+	var GBALR_Age = 7.1 ;
+	}
+	switch(true){
+	case agePro== 0.04 && GBALR==20:
+	var GBALR_Age = 7.5 ;
+	}
+
+	
+	
+	LRRK2LR = document.getElementById("LRRK2").value;
+	LRRK2LR_Age =1
+
+	switch(true){
+	case agePro== 0.004 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 2.5 ;
+	}
+	switch(true){
+	case agePro== 0.0075 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 4 ;
+	}
+	switch(true){
+	case agePro== 0.0125 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 5.6 ;
+	}
+	switch(true){
+	case agePro== 0.02 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 7.5 ;
+	}
+	switch(true){
+	case agePro== 0.025 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 11.6 ;
+	}
+	switch(true){
+	case agePro== 0.035 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 9.1 ;
+	}
+	switch(true){
+	case agePro== 0.04 && LRRK2LR==2.5:
+	var LRRK2LR_Age = 10.5 ;
+	}
+
+	GeneLR = GBALR_Age*LRRK2LR_Age
+
+	PRSLR = document.getElementById("PRS").value;
+	HeriatageLR = 1
+	
+	
+	HyperSNLR = document.getElementById("HyperSN").value;
+	DMIILR = document.getElementById("DMII").value;
+	Inactivity_LR = document.getElementById("Inactivity").value;
+	PUrate_LR = document.getElementById("PUrate").value;
+	
+	
+<!------ Prodromal Marker --->	
+	PSGLR = document.getElementById("PSG").value;
+	RBD_QLR = document.getElementById("RBD_Q").value;
+	SomnolenceLR = document.getElementById("Somnolence").value;
+	HypotensionLR = document.getElementById("Hypotension").value;
+	HyposmiaLR = document.getElementById("Hyposmia").value;
+	ConstipationLR = document.getElementById("Constipation").value;
+	UrinationLR = document.getElementById("Urination").value;
+	EDLR = document.getElementById("ED").value;
+	DepressionLR = document.getElementById("Depression").value;
+	DementiaLR = document.getElementById("Dementia").value;
+	RSWALRm = Math.max(RBD_QLR, PSGLR);
+	
+	
+	
+<!------ Motor Marker --->
+	UPDRS_IIILR = document.getElementById("UPDRS_III").value;
+	BradykinesiaLR = document.getElementById("Bradykinesia").value;
+	Motor_RiskLR = Math.max(UPDRS_IIILR, BradykinesiaLR);
+	document.getElementById("Motor_Marker").value = Motor_RiskLR;
+	
+	
+	
+<!------ Clinical Marker --->
+	DaTLR = document.getElementById("DaT").value;
+	document.getElementById("Biomaker").value = DaTLR;
+	
+    
+ 
+
+	
+<!-- Protective Gene --> 
+switch(true){
+	case RelativeLR >1  || PRSLR >1 || GeneLR >1:
+	var HeriatageLR = Math.max(RelativeLR,PRSLR,GeneLR);
+	}
+switch(true){
+	case RelativeLR < 1.1 && PRSLR < 1.0  && GeneLR == 1:
+	var HeriatageLR = Math.min(RelativeLR,PRSLR,GeneLR);
+	}
+    
+<!-- Different Results --> 
+    
+switch(true){
+	case UPDRS_IIILR !==1 && BradykinesiaLR !==1 && UPDRS_IIILR < 1.1 && BradykinesiaLR < 1.1:
+	var Motor_RiskLR = Math.min(UPDRS_IIILR, BradykinesiaLR);
+	}
+    
+<!--RBD Questionnaire-->
+
+
+switch(true){
+	case PSGLR < 1.1 && RBD_QLR <1.1:
+	var RSWALRm = Math.min(RBD_QLR, PSGLR);
+	}
+
+
+	document.getElementById("Non_Motor_Marker").value = RSWALRm*SomnolenceLR*HypotensionLR*HyposmiaLR*ConstipationLR*UrinationLR*EDLR*DepressionLR*DementiaLR;
+	document.getElementById("RiskMarker").value = sexLR*PesticideLR*OccupationLR*CaffeineLR*SmokingLR*HeriatageLR*HyperSNLR*DMIILR*Inactivity_LR*PUrate_LR;
+	document.getElementById("ProdromalMarker").value = RSWALRm*DaTLR*Motor_RiskLR*HyposmiaLR*ConstipationLR*SomnolenceLR*HypotensionLR*EDLR*UrinationLR*DepressionLR*DementiaLR;
+    document.getElementById("PLR").value = ageLR
+    document.getElementById("result0").value = sexLR*PesticideLR*OccupationLR*CaffeineLR*SmokingLR*HeriatageLR*HyperSNLR*DMIILR*Inactivity_LR*PUrate_LR*RSWALRm*DaTLR*Motor_RiskLR*HyposmiaLR*ConstipationLR*SomnolenceLR*HypotensionLR*EDLR*UrinationLR*DepressionLR*DementiaLR;
+	
+	
+	Preodds = document.getElementById("PriorProb").value;
+	Final_LR = sexLR*PesticideLR*OccupationLR*CaffeineLR*SmokingLR*HeriatageLR*DMIILR*Inactivity_LR*PUrate_LR*HyperSNLR*RSWALRm*DaTLR*Motor_RiskLR*HyposmiaLR*ConstipationLR*SomnolenceLR*HypotensionLR*EDLR*UrinationLR*DepressionLR*DementiaLR;
+	Postodds = Preodds*Final_LR;
+	
+	
+	document.getElementById("PostProb").value = (Postodds/(1+Postodds));
+	
+if(ageLR > Final_LR){
+	document.getElementById("PPPD").value = "No";}
+    else if(ageLR == Final_LR){
+	document.getElementById("PPPD").value = "Boarderline";}
+	else if(ageLR < Final_LR){
+	document.getElementById("PPPD").value = "Yes";}
+    
+}
+
+</script>
+<!-- I have not yet incoporate gene LR. I am waiting for Ron's information  -->
+<!-- we need to some priority check! for instance PSG > screening-->
+
+
+
+<form>
+<br>
+<br>
+
+
+<!--Prioprobability-->
+<fieldset>
+<legend>
+<h4>
+Prior Probability: <input readonly="readonly" class="textfield" id="PriorProb" type="number">
+(Auto-output Field)
+</h4>
+</legend>
+<p>
+Age:
+<select id="age" onchange="select_YN()"> 
+		<option value="">  </option>
+		<option value="0.0040"> 50-54</option>
+		<option value="0.00750"> 55-59</option>
+		<option value="0.01250"> 60-64</option>
+		<option value="0.020"> 65-69</option>
+		<option value="0.0250"> 70-74</option>
+		<option value="0.0350"> 75-79</option>		
+		<option value="0.040"> &gt; 79 </option>
+	</select>
+</p>
+
+</fieldset>
+<br>
+<br>
+<fieldset>
+<legend>
+<h4>
+Risk Markers: <input readonly="readonly" type="text" class="textfield" id="RiskMarker"> 
+</h4>
+</legend>
+<p>
+1. &nbsp;       &nbsp;
+Sex:
+	<select id="sex" onchange="select_YN()"> 
+		<option value="1">  </option>
+		<option value="1.2"> Male</option>
+		<option value="0.8"> Female </option>
+	</select>
+</p>
+<p>
+2. &nbsp;       &nbsp;
+Regular Pesticide Exposure:
+	<select id="Pesticide" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.5"> Yes </option>
+		<option value="1"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(i.e., ≥100 episodes of non-occupational exposure)</sub>
+</p>
+<p>
+3. &nbsp;       &nbsp;
+Occupational Solvent Exposure:
+	<select id="Occupation" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.5"> Yes </option>
+		<option value="1"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+<p>
+4. &nbsp;       &nbsp;
+Consume Caffeinated Bevarage:
+	<select id="Caffeine" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="0.88"> Yes </option>
+		<option value="1.35"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+	<br>
+<sub>(i.e., &lt;3 cups of coffee/6 cups of black tea per-week)</sub>
+</p>
+<p>
+5. &nbsp;       &nbsp;
+Smoking:
+	<select id="Smoking" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.2"> Never </option>
+		<option value="0.8"> Former </option>
+		<option value="0.45"> Current </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+
+<p>
+6. &nbsp;       &nbsp;
+Family History of PD (first degree relative)?
+	<select id="Relative" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="2.5"> Yes </option>
+		<option value="1"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+<p>
+7-1 &nbsp; 
+Intermediate Strength Genetic Variants associated with PD
+<br>&nbsp;  &nbsp;   &nbsp; &nbsp;&nbsp;
+ <i>GBA</i> Mutation (for specific mutation subtypes see: Anheim 2012, Neurology)
+	<select id="GBA" onchange="select_YN()">
+		<option value="1">  </option>
+        <option value="20"> Yes </option>
+		<option value="1"> No </option>
+		<option value="1"> Not Available </option>
+
+	</select>	
+<br>
+ &nbsp;  &nbsp;   &nbsp; &nbsp;&nbsp;
+<i>LRRK2 (p.G2019S)</i> Mutation  (Lee 2017, Mov Disord)
+	<select id="LRRK2" onchange="select_YN()">
+		<option value="1">  </option>
+        <option value="2.5"> Yes </option>
+		<option value="1"> No </option>
+		<option value="1"> Not Available </option>
+
+	</select>	
+	</p>
+<p>
+7-2 &nbsp; 
+Polygenic Risk Score: 
+<select id="PRS" onchange="select_YN()">
+		<option value="1">  </option>
+        <option value="1.57"> High Polygenic Risk Score (i.e.,the highest quartile of scores in a large cohort)</option>
+		<option value="0.45"> Low Polygenic Risk Score (i.e., the lowest quartile of scores in a large cohort) </option>
+		<option value="1"> Not Available (or the score falls in between the two quantiles)</option>
+	</select>	
+<br>
+</p>
+<p>
+8. &nbsp;       &nbsp;
+Documented Substantia Nigra Hyperechogenicity on Transcranial Ultrasound
+	<select id="HyperSN" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="3.4"> Yes </option>
+		<option value="0.38"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+	<br>
+<sub>(i.e., SN+ corresponds to an uni- or bilateral hyperechogenic area in the SN (&gt;90<sup>th</sup> percentile of the reference sample))</sub>
+</p>
+<p>
+9. &nbsp;       &nbsp;
+Medical Diagnosis of Type II Diabetes Mellitus
+	<select id="DMII" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.5"> Yes </option>
+		<option value="0.97"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+<p>
+10.&nbsp;&nbsp;
+Physical Inactivity:
+	<select id="Inactivity" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.3"> Yes </option>
+		<option value="0.91"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+		<br>
+<sub>(i.e., &lt;1 hour/week of physical activity causing elevating in breath and heart rate/sweating)</sub>
+</p>
+<p>
+11.&nbsp; &nbsp;
+Low Plasma Urate (Men)
+	<select id="PUrate" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.8"> Yes (in men)</option>
+		<option value="0.88"> No (in men) </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+</fieldset>	
+<br>
+<br>	
+<br>
+</form>
+
+
+<form>
+
+<p>
+</p><h4>
+        &nbsp;       &nbsp;     
+Prodromal Markers: <input readonly="readonly" class="textfield" id="ProdromalMarker" type="text"> 
+(Auto-output Field)
+</h4>
+<p></p>
+
+<!--Clinical Non-motor Markers-->
+
+<fieldset>
+<legend>
+<b>
+A. Clinical Non-motor Markers: <input readonly="readonly" class="textfield" id="Non_Motor_Marker" type="text">
+</b>
+</legend>
+<p>
+A-1.1 Polysomnograph-proven RBD:
+	<select id="PSG" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="130"> Yes </option>
+		<option value="0.65"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+<p>
+A-1.2 Are you able to exclude differential diagnosis when screening for RBD?
+		<input name="RBD_Expert" id="RBD_Physician_Yes" type="radio" value="1" onclick="select_YN;">
+		<label for="RBD_Physician_Yes"> Yes </label>
+		<input name="RBD_Expert" id="RBD_Physician_No" type="radio" value="0" onclick="select_YN;"> 
+		<label for="RBD_Physician_No"> No </label>
+<br>		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+Results of screeening for RBD:
+  <select id="RBD_Q" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="2.8"> Positive Screen, No Further Confirmation </option>
+		<option value="0.89"> Negative Screen, No Further Confirmation</option>
+		<option value="1"> Not Available </option>
+	</select>
+	<br>
+<sub>(*Differential diagnosis and possible drug-induced/nacrolepsy-related dream enactment should be excluded)</sub>
+</p>
+<p>
+A-2&nbsp;       &nbsp;
+Excessive Daytime Somnolence:
+	<select id="Somnolence" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="2.7"> Yes </option>
+		<option value="0.86"> No </option>		
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(* Possible drug-induced or nacrolepsy-related RBD symptom should be excluded)</sub>
+</p>
+
+<p>
+A-3&nbsp;       &nbsp;
+Olfactory Loss:
+	<select id="Hyposmia" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="6.4"> Yes </option>
+		<option value="0.40"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(i.e., total score below age-and-sex-adjusted threshold in a quantitative olfactory test (e.g. Sniffin' Stick, UPSIT or B-SIT)</sub>
+</p>
+<p>
+A-4&nbsp;       &nbsp;
+Constipation:
+	<select id="Constipation" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="2.5"> Yes </option>
+		<option value="0.82"> No </option>		
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(i.e., constipation requiring treatment more than once a week, or 
+spontaneous bowel movement frequency less than every other day)</sub>
+</p>
+<p>
+A-5&nbsp;       &nbsp;
+Urinary Dysfunction:
+	<select id="Urination" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="2.0"> Yes </option>
+		<option value="0.9"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+</p>
+<p>
+A-6&nbsp;       &nbsp;
+Severe Erectile Dysfunction:
+	<select id="ED" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="3.4"> Yes </option>
+		<option value="0.87"> No </option>		
+		<option value="1"> Not Available </option>
+		<option value="1"> Female Patient </option>
+	</select>
+</p>
+
+<p>
+A-7&nbsp;       &nbsp;
+Has a measurement of orthostatic hypotension been performed at the clinic?
+		<input name="OH_Expert" id="OH_Physician_Yes" type="radio" value="1">
+		<label for="OH_Physician_Yes"> Yes </label>
+		<input name="OH_Expert" id="OH_Physician_No" type="radio" value="0"> 
+		<label for="OH_Physician_No"> No </label>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+Orthostatic Hypotension:
+	<select id="Hypotension" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="18.5"> OH, with No Alternate Cause on Comprehensive Expert Evaluation </option>
+		<option value="3.2"> OH, Documented, No Further Diagnostic Investigation </option>
+		<option value="0.88"> No OH Diagnosed on Comprehensive Expert Evaluation </option>
+		<option value="0.80"> No Documented OH and Did Not Perform Further Investigation </option>
+		<option value="1"> Not Available </option>
+	</select>	
+</p>
+
+<p>
+A-8&nbsp;       &nbsp;
+Depression (with/without Anxiety):
+	<select id="Depression" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.6"> Yes </option>
+		<option value="0.88"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(Clinical diagnosis or reaching thresholds of at least moderate depression in depression inventories/questionnaires)</sub>
+</p>
+
+<p>
+A-9&nbsp;       &nbsp;
+Global Cognitive Deficit:
+	<select id="Dementia" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="1.8"> Yes </option>
+		<option value="0.88"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(i.e., diagnosed with mild cognitive impairment or score more than 1.5SD below the Age-and-sex-adjusted Norm)</sub>
+</p></fieldset>
+<p></p>
+
+
+
+
+
+<!--Clinical Motor Markers-->
+
+
+
+<fieldset>
+<legend>
+<b>
+B. Clinical Motor Markers: <input readonly="readonly" class="textfield" id="Motor_Marker" type="text">
+</b>
+</legend>
+<p>
+B-1&nbsp;       &nbsp;
+UPDRS III Total Score &gt;3 or MDS UPDRS III Total Score &gt;6 (Physician Examination):
+	<select id="UPDRS_III" onchange="select_YN()">
+	<option value="1">  </option>
+		<option value="9.6"> Yes </option>
+		<option value="0.55"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(*Excluding action tremor and potential confounds, such as arthritis)</sub>
+</p>
+<p>
+B-2&nbsp;       &nbsp;
+Abnormal Quantitative Motor Testing (i.e., &lt; Mean + 1SD):
+	<select id="Bradykinesia" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="3.5"> Yes </option>
+		<option value="0.6"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(Abnormalities of quantitative motor tests according to defined 
+thresholds, with performance 1 standard deviation (SD) below 
+age-adjusted normal values. The motor test must be clearly demonstrably 
+abnormal in clinical PD, with specificity compared to controls of ≥80%. 
+If multiple quantitative motor tests are performed, the individual must 
+score below threshold on ≥50% of them. Uncertain or borderline test 
+results should not be included (use evaluator judgment).)</sub>
+</p>
+</fieldset>
+<br>
+
+
+
+
+
+
+
+<!--Clinical Biomarkers-->
+
+<fieldset>
+<legend>
+<b>
+C. Clinical Biomarkers: <input readonly="readonly" class="textfield" id="Biomaker" type="text">
+</b>
+<br>
+<sub>The specific marker (and evaluation technique of this marker) has a documented specificity &gt;80% in at least 2 studies.</sub>
+</legend>
+<p>
+C-1&nbsp;       &nbsp;
+Clear Abnormality on Dopaminergic Imaging:
+	<select id="DaT" onchange="select_YN()">
+		<option value="1">  </option>
+		<option value="55.8"> Yes </option>
+		<option value="0.66"> No </option>
+		<option value="1"> Not Available </option>
+	</select>
+<br>
+<sub>(e.g., &lt; 65% normal, 2SD below mean)</sub>
+</p>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+</form>
+<!--Score and Diagnosis-->
+
+
+
+<fieldset>
+<legend>
+<h2>Scores and Diagnosis </h2>
+</legend>
+<p> 
+Total LR Threshold Requied for Probable Prodromal PD:  <input readonly="readonly" type="text" class="textfield" id="PLR">
+<br>
+<br>
+Total Estimated LR: <input readonly="readonly" type="text" class="textfield" id="result0">
+<br>
+</p>
+<p>
+Estimated Probability (%): <input readonly="readonly" type="text" class="textfield" name="" id="PostProb">
+<br>
+Probable Prodromal PD:  <input readonly="readonly" type="text" class="textfield" id="PPPD">
+<br>
+
+</p> 
+</fieldset>
+<br>
+<br>
+<br>
+<b>Reference:</b>
+Heinzel S, Berg D, Gasser T, et al. Update of the MDS Research Criteria for Prodromal PD. Mov Disord 2019
+</body></html>
